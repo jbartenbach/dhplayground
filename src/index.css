@@ -1,13 +1,80 @@
+
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#sticky-top {
+  position: fixed;
+  top: 0;
+  background-color: #FFFFFF;
+  width: 100%;
+  z-index: 1;
+}
+
+#header {
+  background-color: #FFFFFF;
+  width: 100%;
+  line-height:64px;
+  font-size: 1.5em;
+  text-transform: uppercase;
+}
+
+#status-bar {
+  width:100%;
+  /* background-color: #FBFBFB; */
+  height: 192px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: height .5s;
+}
+
+.status-bar-label {
+  font-weight: 300;
+  font-size: .75em;
+  text-transform: uppercase;
+  opacity: .5;
+  transition: opacity .5s, height .5s;
+}
+.status-bar-date {
+  font-family: 'Open Sans Condensed';
+  font-weight: 700;
+  font-size:2.5em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  transition: font-size .5s, height .5s, opacity .25s;
+}
+.status-bar-message {
+  font-size: .9em;
+  color: #656666;
+  opacity: .5;
+  transition: opacity .5s;
+}
+#content {
+  margin-top: 256px;
+  padding:0px 64px;
+  background-color: #EEE;
+  position: absolute;
+  /* min-height: 1000px; */
+}
+.content-item {
+  width:200px;
+  height:300px;
+  background-color: #DDD;
+  background-image: linear-gradient(#DDD, #CCC);
+  margin: 20px;
+  position: relative;
+  float: left;
 }
