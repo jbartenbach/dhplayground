@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import StatusBar from './StatusBar';
+import StatusBar from './statusBar';
+import Content from './content'
 
 class App extends React.Component {
 
@@ -9,10 +10,6 @@ class App extends React.Component {
     this.state = {
       isScrolled: false,
       isSaved: true,
-      statusBarStyle: {},
-      labelStyle: {},
-      dateStyle: {},
-      msgStyle: {}
     }
     this.scrollHandler = this.scrollHandler.bind(this);
     this.itemClickHandler = this.itemClickHandler.bind(this)
@@ -28,49 +25,17 @@ class App extends React.Component {
 
   itemClickHandler() {
     this.setState({ isSaved : !this.state.isSaved });
-    if(this.state.isScrolled) {
-      this.state.isSaved ? this.scrollToMessage() : this.scrollToDate()
-    }
   }
 
   scrollHandler() {
     const trigger = 50;
     let scrollPos = window.scrollY;
     if(scrollPos > trigger && !this.state.isScrolled) {
-      this.setState({ isScrolled : true })
-      this.state.isSaved ? this.scrollToDate() : this.scrollToMessage()
+      this.setState({ isScrolled: true })
     }
     else if (scrollPos < trigger && this.state.isScrolled) {
-      this.unscroll()
+      this.setState({ isScrolled: false })
     }
-  }
-
-  scrollToDate() {
-    this.setState({
-      statusBarStyle: { height: 80 },
-      labelStyle: { opacity: 0 },
-      dateStyle: { fontSize: '1.5em' },
-      msgStyle: { opacity: 0 }
-     })
-  }
-
-  scrollToMessage() {
-    this.setState({
-      statusBarStyle: { height: 80 },
-      labelStyle: { opacity: 0, height: 0 },
-      dateStyle: { fontSize: '1.5em', opacity: 0, height: 0 },
-      msgStyle: {}
-     })
-  }
-
-  unscroll() {
-    this.setState({
-      isScrolled: false,
-      statusBarStyle: {},
-      labelStyle: {},
-      dateStyle: {},
-      msgStyle: {}
-     })
   }
 
   render() {
@@ -79,35 +44,9 @@ class App extends React.Component {
 
         <div id="sticky-top">
           <div id="header">D H</div>
-
-          <StatusBar
-            message={this.state.message}
-            statusBarStyle={this.state.statusBarStyle}
-            labelStyle={this.state.labelStyle}
-            dateStyle={this.state.dateStyle}
-            msgStyle={this.state.msgStyle}
-            isSaved={this.state.isSaved} />
+          <StatusBar isScrolled={this.state.isScrolled} isSaved={this.state.isSaved} />
         </div>
-
-        <div id="content" onClick={this.itemClickHandler}>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-          <div className="content-item"></div>
-        </div>
-
+        <Content action={this.itemClickHandler} />
       </div>
 
 
