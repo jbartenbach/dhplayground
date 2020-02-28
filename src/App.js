@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import StatusBar from './statusBar';
+import StatusBar from './StatusBar';
 import Content from './content'
 
 class App extends React.Component {
