@@ -20,6 +20,7 @@ class Content extends React.Component {
         <div className="content-item"></div>
         <div className="content-item"></div>
         <div className="content-item"></div>
+        <div className="content-item"></div>
       </div>
     )
   }
