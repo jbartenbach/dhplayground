@@ -1,0 +1,52 @@
+#status-bar {
+  width:100%;
+  /* background-color: #FBFBFB; */
+  height: 192px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: height .5s;
+}
+#status-bar.scroll {
+  height: 56px;
+}
+
+.status-bar-label {
+  height:16px;
+  font-weight: 300;
+  font-size: .75em;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: opacity .5s, height .5s;
+}
+.status-bar-label.scroll {
+   opacity: 0;
+   height: 0;
+}
+
+.status-bar-date {
+  font-family: 'Open Sans Condensed';
+  font-weight: 700;
+  font-size:2.5em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  transition: font-size .5s, height .5s, opacity .25s;
+}
+.status-bar-date.scroll-to-date {
+  font-size: 1.5em;
+}
+.status-bar-date.scroll-to-message {
+  font-size: 1.5em;
+  opacity: 0;
+  height: 0;
+}
+
+.status-bar-msg {
+  font-size: .9em;
+  color: #656666;
+  transition: opacity .5s;
+}
+.status-bar-msg.scroll-to-date {
+   opacity: 0;
+   height:0;
+}

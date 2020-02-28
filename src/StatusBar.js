@@ -1,4 +1,5 @@
 import React from 'react';
+import './statusBar.css';
 
 class StatusBar extends React.Component {
 
